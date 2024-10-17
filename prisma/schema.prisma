@@ -24,8 +24,5 @@ model Fatura {
   energia_compensada_gd_kwh             Decimal?  @db.Decimal(10, 2) // Quantidade de Energia Compensada (GD I) (kWh)
   energia_compensada_gd_valor           Decimal?  @db.Decimal(10, 2) // Valor de Energia Compensada (GD I) (R$)
   contribuicao_ilum_pub_municipal_valor Decimal?  @db.Decimal(10, 2) // Contribuição de iluminação pública municipal (R$)
-  consumo_total_kwh                     Decimal?  @db.Decimal(10, 2) // Consumo total de energia elétrica (soma de energia elétrica + energia SCEE)
-  valor_total_sem_gd                    Decimal?  @db.Decimal(10, 2) // Valor total sem a geração distribuída (GD)
-  economia_gd_valor                     Decimal?  @db.Decimal(10, 2) // Economia gerada pela GD
   criado_em                             DateTime  @default(now()) // Data de criação do registro
 }
