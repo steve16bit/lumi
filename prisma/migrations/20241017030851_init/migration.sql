@@ -1,5 +1,5 @@
 -- CreateTable
-CREATE TABLE "Contas" (
+CREATE TABLE "Fatura" (
     "id" SERIAL NOT NULL,
     "numero_cliente" TEXT,
     "mes_referencia" TIMESTAMP(3),
@@ -15,5 +15,5 @@ CREATE TABLE "Contas" (
     "economia_gd_valor" DECIMAL(10,2),
     "criado_em" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "Contas_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Fatura_pkey" PRIMARY KEY ("id")
 );

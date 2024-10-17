@@ -13,7 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Contas {
+model Fatura {
   id                                    Int       @id @default(autoincrement()) // ID único para cada fatura
   numero_cliente                        String? // Número do cliente (ex. código único)
   mes_referencia                        DateTime? // Mês de referência da fatura
