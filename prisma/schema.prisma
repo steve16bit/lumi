@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Contas {
+  id                                    Int       @id @default(autoincrement()) // ID único para cada fatura
+  numero_cliente                        String? // Número do cliente (ex. código único)
+  mes_referencia                        DateTime? // Mês de referência da fatura
+  energia_eletrica_kwh                  Decimal?  @db.Decimal(10, 2) // Quantidade de Energia Elétrica consumida (kWh)
+  energia_eletrica_valor                Decimal?  @db.Decimal(10, 2) // Valor de Energia Elétrica (R$)
+  energia_scee_sem_icms_kwh             Decimal?  @db.Decimal(10, 2) // Energia SCEE sem ICMS (kWh)
+  energia_scee_sem_icms_valor           Decimal?  @db.Decimal(10, 2) // Valor da Energia SCEE sem ICMS (R$)
+  energia_compensada_gd_kwh             Decimal?  @db.Decimal(10, 2) // Quantidade de Energia Compensada (GD I) (kWh)
+  energia_compensada_gd_valor           Decimal?  @db.Decimal(10, 2) // Valor de Energia Compensada (GD I) (R$)
+  contribuicao_ilum_pub_municipal_valor Decimal?  @db.Decimal(10, 2) // Contribuição de iluminação pública municipal (R$)
+  consumo_total_kwh                     Decimal?  @db.Decimal(10, 2) // Consumo total de energia elétrica (soma de energia elétrica + energia SCEE)
+  valor_total_sem_gd                    Decimal?  @db.Decimal(10, 2) // Valor total sem a geração distribuída (GD)
+  economia_gd_valor                     Decimal?  @db.Decimal(10, 2) // Economia gerada pela GD
+  criado_em                             DateTime  @default(now()) // Data de criação do registro
+}
